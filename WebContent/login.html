@@ -28,48 +28,25 @@
 </nav>
 </header><!-- /header -->  
 <content>
-    <div class="row">
-        <div class="col-md-6 col-sm-6 main-image"><img class="img-responsive" src="assets/img/main.jpg" id="main-docs"></div>
-        <div class="col-md-6">
-            <form class="bootstrap-form-with-validation">
-                <h2 class="text-center" id="choose">Изберете лекар по:</h2>
-                <div class="form-group">
-                    <input class="form-control" type="search" name="search-input" placeholder="име" autofocus="" id="search-input">
-                </div>
-                <div class="form-group">
-                    <select class="form-control" name="specialty">
-                        <optgroup  placeholder="специалност" label="специалност">
-                            <option value="12">Акушер-гинеколог</option>
-                            <option value="13">Вътрешни болести</option>
-                            <option value="14">Гастроентеролог</option>
-                            <option value="15">Гръден хирург</option>
-                            <option value="16">Дерматолог</option>
-                            <option value="17">Детски ендокринолог</option>
-                            <option value="18">Зъболекар (Стоматолог)</option>
-                        </optgroup>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <select class="form-control">
-                        <optgroup label="град...">
-                            <option value="1" selected="">София</option>
-                            <option value="2">Бургас</option>
-                            <option value="3">Благоевград</option>
-                            <option value="4">Варна</option>
-                            <option value="5">Плевен</option>
-                            <option value="6">Русе</option>
-                            <option value="8">Стара Загора</option>
-                        </optgroup>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <button class="btn btn-info" type="submit" id="search-doc">Търси </button>
-                </div>
+    <div class="row login-form">
+            <form class="login-form" action="login.jsp">
+                <h2 class="text-center form-heading" id="login-label">Вход:</h2>
+                <div id="fb-root"></div>
+                    <div class="form-group">
+                        <input class="form-control" type="email" placeholder="Email" name="email">
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" type="password" placeholder="Парола" name="password">
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-info" type="button" id="login-btn">Вход</button>
+                    </div>
+                    <div class="fb-login-button" data-max-rows="1" data-size="medium" data-show-faces="false" data-auto-logout-link="false"></div>
+   
             </form>
-        </div>
-    </div>
-</content>
-        <footer>
+    </div>        
+   </content> 
+    <footer>
             <div class="row">
                 <div class="col-md-4 col-md-offset-0 col-sm-6 footer-navigation">
                     <h3><a href="#">DocOffice </a></h3>
@@ -92,8 +69,8 @@
                     </div>
                 </div>
             </div>
-    
-    </footer>
+  
+   </footer>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/functions.js"></script>

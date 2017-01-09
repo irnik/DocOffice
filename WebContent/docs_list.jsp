@@ -1,3 +1,9 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@page import="java.util.List"%>
+<%@page import="java.util.Enumeration"%>
+<%@page import="bean.Doctor"%>
+<%@page import="bean.InfoDao"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -28,24 +34,71 @@
 </nav>
 </header><!-- /header -->  
 <content>
-    <div class="row login-form">
-            <form class="login-form">
-                <h2 class="text-center form-heading" id="login-label">Вход:</h2>
-                <div id="fb-root"></div>
-                    <div class="form-group">
-                        <input class="form-control" type="email" placeholder="Email" name="email">
+<div class="col-md-7">
+<%
+    String input = (String)request.getParameter("input");
+	String specialty = (String)request.getParameter("specialty");
+	String town = (String)request.getParameter("town");
+	List<Doctor> docList = InfoDao.getDoctorList(input,specialty,town);
+	if(docList!=null && docList.size()>0){
+		for(int i=0; i<docList.size(); i++){
+			Doctor doc = (Doctor)docList.get(i);
+			%>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="container-fluid">
+                    <div class="row product">
+                        <div class="col-md-4 col-md-offset-1"><img class="img-responsive" src="assets/img/doc3.jpg" width="160"></div>
+                        <div class="col-md-7 col-sm-4">
+							<h2><%=doc.getName() %></h2>
+							<h4><%=doc.getSpecialty() %></h4>
+                            <p> <span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span></p>
+                            <h4><%=doc.getTown() %></h4>
+                            <button class="btn btn-default" type="button">Запази час</button>
+                            <button class="btn btn-default" type="button">Виж повече</button>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <input class="form-control" type="password" placeholder="Парола" name="password">
-                    </div>
-                    <div class="form-group">
-                        <button class="btn btn-info" type="button" id="login-btn">Вход</button>
-                    </div>
-                    <div class="fb-login-button" data-max-rows="1" data-size="medium" data-show-faces="false" data-auto-logout-link="false"></div>
-   
-            </form>
-    </div>        
-   </content> 
+                </div>
+            </div>
+        </div>
+<%
+		}
+	}else{
+		String pageUrl = new String("index.html");
+		response.sendRedirect(pageUrl);
+	}/*
+        request.setAttribute("message", "Hello world");
+		//RequestDispatcher dispatcher = servletContext().getRequestDispatcher(url);
+		//dispatcher.forward(request, response);
+		String pageUrl = new String("index.html");//?err=");
+		response.set
+		response.sendRedirect(pageUrl);
+	}*/
+%>
+    <div class="col-md-4 col-md-offset-0">
+         <h3>Адрес</h3>
+         <div id="map"></div>
+    <script>
+      function initMap() {
+        var uluru = {lat: -25.363, lng: 131.044};
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 4,
+          center: uluru
+        });
+        var marker = new google.maps.Marker({
+          position: uluru,
+          map: map
+        });
+      }
+    </script>
+        
+         <script async defer
+             src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCW_YKrZJ09UoMhtSYmDfx5AHHLDeC_3II&callback=initMap">
+        </script>
+    </div>
+
+ </div>
+</content>
     <footer>
             <div class="row">
                 <div class="col-md-4 col-md-offset-0 col-sm-6 footer-navigation">
@@ -72,8 +125,8 @@
   
    </footer>
     <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/functions.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
 </body>
 
 </html>

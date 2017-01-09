@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DocOffice</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cookie">
+    <link rel="stylesheet" href="assets/css/user.css">
+    <link rel="stylesheet" href="assets/bootstrap/fonts/font-awesome.min.css">
+</head>
+
+<body>
+<header id="header" class="">
+      <nav class="navbar navbar-default navbar-static-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <h3><a href="index.html" id="logo">DocOffice</a></h3>
+    
+            </div>
+            <div class="collapse navbar-collapse" id="navcol-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li role="presentation"><a class="text-uppercase login" href="login.html" id="login">Вход </a></li>
+                    <li role="presentation"><a class="text-uppercase text-muted register" href="register.html" id="register">Регистрация </a></li>
+                </ul>
+            </div>
+        </div>
+</nav>
+</header><!-- /header -->  
+<content>
+    <div class="row">
+        <div class="col-md-6 col-sm-6 main-image"><img class="img-responsive" src="assets/img/main.jpg" id="main-docs"></div>
+        <div class="col-md-6">
+            <form class="bootstrap-form-with-validation" action="docs_list.jsp">
+                <h2 class="text-center" id="choose">Изберете лекар по:</h2>
+                <div class="form-group">
+                    <input class="form-control" type="search" name="input" placeholder="име" id="search-input">
+                </div>
+                <div class="form-group">
+                    <select class="form-control" name="specialty">
+                        <optgroup  placeholder="специалност" label="специалност">
+                            <option value="12">Акушер-гинеколог</option>
+                            <option value="13">Вътрешни болести</option>
+                            <option value="14">Гастроентеролог</option>
+                            <option value="15">Гръден хирург</option>
+                            <option value="16">Дерматолог</option>
+                            <option value="17">Детски ендокринолог</option>
+                            <option value="18">Зъболекар (Стоматолог)</option>
+                        </optgroup>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <select class="form-control" name="town">
+                        <optgroup label="град...">
+                            <option value="1" selected="">София</option>
+                            <option value="2">Бургас</option>
+                            <option value="3">Благоевград</option>
+                            <option value="4">Варна</option>
+                            <option value="5">Плевен</option>
+                            <option value="6">Русе</option>
+                            <option value="8">Стара Загора</option>
+                        </optgroup>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-info" type="submit" id="search-doc">Търси </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</content>
+        <footer>
+            <div class="row">
+                <div class="col-md-4 col-md-offset-0 col-sm-6 footer-navigation">
+                    <h3><a href="#">DocOffice </a></h3>
+                    <div class="social-links social-icons"><a href="#"><span class="fa fa-facebook"></span></a><a href="#"><span class="fa fa-google-plus-square"></span></a></div>
+                    <p class="company-name"> © 2017 DocOffice.bg. Al rights reserved. </p>
+                </div>
+                <div class="col-md-4 col-sm-6 footer-contacts">
+                    <div></div>
+                    <div><span class="fa fa-phone footer-contacts-icon"></span>
+                        <p class="footer-center-info email text-left"> +359 888 123 456</p>
+                    </div>
+                    <div><span class="fa fa-envelope footer-contacts-icon"></span>
+                        <p>DocOffice@gmail.com </p>
+                    </div>
+                </div>
+                <div class="col-md-4 footer-about">
+                    <h4>Относно </h4>
+                    <div>
+                        <p>DocOffice ви помага да намерите различни специалисти, да прочетете мнения на други пациенти и да резервирате час за преглед онлайн – в удобно за Вас време и място.</p>
+                    </div>
+                </div>
+            </div>
+    
+    </footer>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/functions.js"></script>
+</body>
+
+</html>
